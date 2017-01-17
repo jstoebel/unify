@@ -324,7 +324,7 @@ DEPENDENCIES
   rails_stdout_logging
   recipient_interceptor
   rspec-rails (~> 3.5.0.beta4)
-  sass-rails (~> 5.0)
+  sass-rails (>= 3.2)
   shoulda-matchers
   simple_form
   simplecov
