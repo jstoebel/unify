@@ -7,14 +7,19 @@ gem "delayed_job_active_record"
 gem "flutie"
 gem "honeybadger"
 gem "jquery-rails"
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'sass-rails', '>= 3.2'
+gem 'd3-rails', "~>3.5.17"
+# gem 'topojson-rails', '~> 1.6', '>= 1.6.19'
+
+
 gem "normalize-rails", "~> 3.0.0"
 gem "mysql2"
 gem "puma"
 gem "rack-canonical-host"
 gem "rails", "~> 5.0.0"
 gem "recipient_interceptor"
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'sass-rails', '>= 3.2'
 gem "simple_form"
 gem "skylight"
 gem "sprockets", ">= 3.0.0"
@@ -22,8 +27,10 @@ gem "suspenders"
 gem "title"
 gem "uglifier"
 gem 'haml'
-gem 'devise'
 
+gem 'devise'
+gem 'omniauth', '~> 1.3', '>= 1.3.2'
+gem 'omniauth-facebook', '~> 3.0'
 
 
 group :development do
