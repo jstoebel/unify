@@ -7,12 +7,12 @@ class MapController < ApplicationController
 
   def checkout
       # grab the place and confirm
-      @place = Place.find_by :code => params[:place_code]
-      if @place.blank?
-          redirect_to :controller => :map,
-              :action => :main,
-              :alert => "Place not found"
-      end
+      # @place = Place.find_by :code => params[:place_code]
+      # if @place.blank?
+      #     redirect_to :controller => :map,
+      #         :action => :main,
+      #         :alert => "Place not found"
+      # end
   end
 
   def confirm

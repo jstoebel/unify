@@ -98,27 +98,40 @@ function pop_tooltip(location){
       .html('Rem sint tenetur cupiditate aliquam ea ut voluptas voluptatem porro \
         magnam ut corrupti <a href="#"> more </a> ')
 
-    // add the form
-    var form = tooltip.append('form')
-      .attr('action', '/donate?&authenticity_token=' + AUTH_TOKEN)
-      .attr('method', 'post')
+    // add the place
+    var btnDiv = tooltip.append('div')
 
-    form.append('input')
-        .attr('type', 'hidden')
-        .attr('name', 'location')
-        .attr('value', location.id)
+    btnDiv.append('a')
+      .attr('href', "/donate/confirm?place="+ location.id)
+      .classed('btn btn-primary', true)
+      .text('Submit')
 
-    form.append('input')
-        .attr('type', 'submit')
-        .attr('value', 'Select')
-        .classed('btn btn-primary', true)
-        .on("click", trySubmit)
-
-    // add the zoom out button
-    form.append('span')
-      .text('back')
+    btnDiv.append('span')
+      .text('Back')
       .classed('btn btn-default', true)
       .on("click", country_clicked) // same as click no country
+
+    // // add the form
+    // var form = tooltip.append('form')
+    //   .attr('action', '/donate?&authenticity_token=' + AUTH_TOKEN)
+    //   .attr('method', 'post')
+    //
+    // form.append('input')
+    //     .attr('type', 'hidden')
+    //     .attr('name', 'location')
+    //     .attr('value', location.id)
+
+    // form.append('input')
+    //     .attr('type', 'submit')
+    //     .attr('value', 'Select')
+    //     .classed('btn btn-primary', true)
+    //     .on("click", trySubmit)
+
+    // add the zoom out button
+    // form.append('span')
+    //   .text('back')
+    //   .classed('btn btn-default', true)
+    //   .on("click", country_clicked) // same as click no country
 }
 
 function trySubmit(e){
