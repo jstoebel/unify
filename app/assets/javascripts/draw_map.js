@@ -28,33 +28,34 @@ svg.append("rect")
 
 var g = svg.append("g");
 
-var validCounties = ['USA']; // TODO this will be replaced with an endpoint
-
 d3.json("/json/countries.topo.json", function(error, us) {
     if (error){
         console.log(error);
     }
-    console.log("countries callback!");
-// TODO
-// hit backend here to find out what countries have projects do all of the following inside callback
 
-g.append("g")
-  .attr("id", "countries")
-  .selectAll("path")
-  .data(topojson.feature(us, us.objects.countries).features)
-  .enter()
-  .append("path")
-  .attr("id", function(d) { return d.id; })
-  // style each country conditionally
-  .attr('fill', function(d){
-    if ( validCounties.indexOf(d.id) !== -1 ){
-      return '#2b77f2';
-    } else {
-      return '#cde'
-    }
-  })
-  .attr("d", path)
-  .on("click", country_clicked);
+    d3.json("/places/active", function(error, activePlaces){
+      if (error){
+          console.log(error);
+      }
+
+      g.append("g")
+      .attr("id", "countries")
+      .selectAll("path")
+      .data(topojson.feature(us, us.objects.countries).features)
+      .enter()
+      .append("path")
+      .attr("id", function(d) { return d.id; })
+      // style each country conditionally
+      .attr('fill', function(d){
+        if ( activePlaces.indexOf(d.id) !== -1 ){
+          return '#2b77f2';
+        } else {
+          return '#cde'
+        }
+      })
+      .attr("d", path)
+      .on("click", country_clicked);
+    }) // GET places
 
 }); // read countries json
 
@@ -102,7 +103,7 @@ function pop_tooltip(location){
     var btnDiv = tooltip.append('div')
 
     btnDiv.append('a')
-      .attr('href', "/donate/confirm?place="+ location.id)
+      .attr('href', "/donations/new?place="+ location.id)
       .classed('btn btn-primary', true)
       .text('Submit')
 

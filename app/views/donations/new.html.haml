@@ -1,0 +1,10 @@
+%h2 Checkout
+%p
+    -# confirm the country. Fields are hidden. Just show a submit button
+    -# = @place.inspect
+
+
+= simple_form_for @donation do |f|
+    = f.hidden :user_id
+    = f.hidden :place_id
+    = f.button :submit

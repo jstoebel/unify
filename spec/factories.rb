@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :donation do
+    
+  end
   factory :place do
     
   end

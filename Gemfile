@@ -13,7 +13,6 @@ gem 'sass-rails', '>= 3.2'
 gem 'd3-rails', "~>3.5.17"
 # gem 'topojson-rails', '~> 1.6', '>= 1.6.19'
 
-
 gem "normalize-rails", "~> 3.0.0"
 gem "mysql2"
 gem "puma"
@@ -29,9 +28,11 @@ gem "uglifier"
 gem 'haml'
 
 gem 'devise'
+gem 'cancancan'
 gem 'omniauth', '~> 1.3', '>= 1.3.2'
 gem 'omniauth-facebook', '~> 3.0'
 
+gem 'rails_admin', '~> 1.1', '>= 1.1.1'
 
 group :development do
   gem "listen"
