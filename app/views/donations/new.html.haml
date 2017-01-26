@@ -5,6 +5,11 @@
 
 
 = simple_form_for @donation do |f|
-    = f.hidden :user_id
-    = f.hidden :place_id
+    = f.input :user_id, :as => :hidden
+    = f.input :place_id, :as => :hidden
+    = f.input :bottle_id
     = f.button :submit
+
+-# = form_tag("/donations", method: "post") do
+-#     = hidden_field_tag(:user_id, @user.id)
+-#     = hidden_field_tag(:place_id, @place_id)

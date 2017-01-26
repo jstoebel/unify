@@ -6,22 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# create an admin user
-
-# puts "Would you like to create an admin account? [Y/n]"
-# create_admin_input = STDIN.gets.chomp
-# create_admin = create_admin_input.downcase  != 'n'
-# puts create_admin
-#
-# if create_admin
-#   puts "Please enter a user email"
-#   email = STDIN.gets.chomp
-#   puts "Please enter a password"
-#   password = STDIN.gets.chomp
-#   User.create!(:email => email, :password => password, :role => 1)
-#   puts "User created!"
-# end
-
 # create all of the places per topojson files
 
 # create countries

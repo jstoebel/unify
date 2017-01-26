@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   get "/donate", to: "map#main"
 
-  resources :donations, only: [:new, :create]
+  resources :donations, only: [:new, :create] do
+  end
 
   get "/places/active", to: "places#active"
   root to: "home#welcome"
