@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124014214) do
+ActiveRecord::Schema.define(version: 20170125235029) do
 
-  create_table "donations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.integer  "place_id"
+  create_table "bottles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "code",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "donations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "place_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "bottle_id",  null: false
+    t.index ["bottle_id"], name: "index_donations_on_bottle_id", using: :btree
     t.index ["place_id"], name: "fk_rails_5b6bb542bb", using: :btree
     t.index ["user_id"], name: "fk_rails_5470822a00", using: :btree
   end
