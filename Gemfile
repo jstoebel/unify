@@ -39,6 +39,7 @@ group :development do
   gem "spring"
   gem "spring-commands-rspec"
   gem "web-console"
+  gem 'annotate', '~> 2.7', '>= 2.7.1'
 end
 
 group :development, :test do
@@ -51,6 +52,7 @@ group :development, :test do
   gem "pry-rails"
   gem "rspec-rails", "~> 3.5.0.beta4"
   gem 'haml-rails', :group => :development
+  gem 'faker', '~> 1.7', '>= 1.7.2'
 end
 
 group :development, :staging do
