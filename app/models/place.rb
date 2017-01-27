@@ -9,6 +9,7 @@
 #  updated_at :datetime         not null
 #  state      :boolean
 #  active     :boolean
+#  blurb      :text(65535)
 #
 
 class Place < ApplicationRecord

@@ -16,8 +16,10 @@ if Rails.env.development? || Rails.env.test?
       ["USA", "BRA"].each do |place_code|
         place = Place.find_by :code => place_code
         place.active = true
+        place.blurb = Lorem.sentence(2)
         place.save!
       end
+
 
       puts "creating a bottle..."
       FactoryGirl.create :bottle

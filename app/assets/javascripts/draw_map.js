@@ -1,6 +1,15 @@
 var country,
     state;
 
+var placeLookup = {};
+d3.json("/places/active", function(error, activePlaces){
+
+  // map country code (ie "USA") to country object from db
+  activePlaces.forEach(function(place){
+      placeLookup[place.code] = place
+  })
+})
+
 var margin = {top: 10, left: 10, bottom: 10, right: 10},
   width = parseInt(d3.select('#map').style('width')) - margin.left - margin.right,
   mapRatio = .5,
@@ -34,6 +43,12 @@ d3.json("/json/countries.topo.json", function(error, us) {
     }
 
     d3.json("/places/active", function(error, activePlaces){
+
+      // map country code (ie "USA") to country object from db
+      activePlaces.forEach(function(place){
+          placeLookup[place.code] = place
+      })
+
       if (error){
           console.log(error);
       }
@@ -44,17 +59,29 @@ d3.json("/json/countries.topo.json", function(error, us) {
       .data(topojson.feature(us, us.objects.countries).features)
       .enter()
       .append("path")
-      .attr("id", function(d) { return d.id; })
+      .attr("id", function(d) {
+          return d.id;
+      })
+      .attr("blurb", function(d) {
+          return d.blurb
+      })
       // style each country conditionally
       .attr('fill', function(d){
-        if ( activePlaces.indexOf(d.id) !== -1 ){
+        // console.log(d);
+        if ( placeLookup[d.id] ){
           return '#2b77f2';
         } else {
           return '#cde'
         }
       })
       .attr("d", path)
-      .on("click", country_clicked);
+      .each(function(d){
+          var country = d3.select(this);
+          if ( placeLookup[d.id] ){
+            country.on("click", country_clicked)
+          }
+      })
+    //   .on("click", country_clicked);
     }) // GET places
 
 }); // read countries json
@@ -87,17 +114,13 @@ tooltip.selectAll("*").remove();
 function pop_tooltip(location){
     // location: the location object
     clear_tooltip();
-    // TODO
-    // hit an endpoint to get details on projects in a country. Do all of the following
-    // inside the callback
-
+    console.log(location);
     tooltip.append('h4')
       .text(location.properties.name)
 
     tooltip.append('span')
       .classed('blurb', true)
-      .html('Rem sint tenetur cupiditate aliquam ea ut voluptas voluptatem porro \
-        magnam ut corrupti <a href="#"> more </a> ')
+      .text(placeLookup[location.id].blurb)
 
     // add the place
     var btnDiv = tooltip.append('div')
@@ -112,27 +135,6 @@ function pop_tooltip(location){
       .classed('btn btn-default', true)
       .on("click", country_clicked) // same as click no country
 
-    // // add the form
-    // var form = tooltip.append('form')
-    //   .attr('action', '/donate?&authenticity_token=' + AUTH_TOKEN)
-    //   .attr('method', 'post')
-    //
-    // form.append('input')
-    //     .attr('type', 'hidden')
-    //     .attr('name', 'location')
-    //     .attr('value', location.id)
-
-    // form.append('input')
-    //     .attr('type', 'submit')
-    //     .attr('value', 'Select')
-    //     .classed('btn btn-primary', true)
-    //     .on("click", trySubmit)
-
-    // add the zoom out button
-    // form.append('span')
-    //   .text('back')
-    //   .classed('btn btn-default', true)
-    //   .on("click", country_clicked) // same as click no country
 }
 
 function trySubmit(e){
@@ -148,7 +150,7 @@ function tooltip_reset(){
 }
 
 function country_clicked(d) {
-
+      console.log(placeLookup);
   if ( d !== undefined ){
     pop_tooltip(d)
   }
@@ -179,9 +181,9 @@ function country_clicked(d) {
       zoom(xyz);
       g.selectAll("#" + d.id).style('display', 'none');
     });
-  } else {
-  zoom(xyz);
-  }
+    } else {
+      zoom(xyz);
+    }
   } else {
     // reset to world view
     tooltip_reset();
@@ -198,16 +200,16 @@ function state_clicked(d) {
           .attr('value', d.id)
     }
 
-g.selectAll("#cities").remove();
+    g.selectAll("#cities").remove();
 
-if (d && state !== d) {
-  var xyz = get_xyz(d);
-  var state = d;
+    if (d && state !== d) {
+      var xyz = get_xyz(d);
+      var state = d;
 
-  var country_code = state.id.substring(0, 3).toLowerCase();
-  var state_name = state.properties.name;
+      var country_code = state.id.substring(0, 3).toLowerCase();
+      var state_name = state.properties.name;
 
-  zoom(xyz)
+      zoom(xyz)
 
   // d3.json("cities_" + country_code + ".topo.json", function(error, us) {
   //   g.append("g")
@@ -222,11 +224,11 @@ if (d && state !== d) {
   //
   //   zoom(xyz);
   // });
-} else {
-  state = null;
-  country_clicked(country);
-}
-}
+    } else {
+      state = null;
+      country_clicked(country);
+    }
+} // end stateClicked
 
 $(window).resize(function() {
 var w = $("#map").width();

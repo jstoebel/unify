@@ -29,6 +29,7 @@ FactoryGirl.define do
     name {StarWars.planet}
     state {Boolean.boolean(0.2)}
     active {Boolean.boolean(0.5)}
+    blurb {Lorem.sentence}
   end
 
   factory :user do
