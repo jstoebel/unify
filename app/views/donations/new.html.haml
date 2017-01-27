@@ -4,10 +4,11 @@
     -# = @place.inspect
 
 
-= simple_form_for @donation do |f|
-    = f.input :user_id, :as => :hidden
-    = f.input :place_id, :as => :hidden
-    = f.input :bottle_id
+= form_for @donation do |f|
+    = f.hidden_field :user_id
+    = f.hidden_field :place_id
+    = f.label :bottle_id
+    = f.text_field :bottle_id
     = f.button :submit
 
 -# = form_tag("/donations", method: "post") do

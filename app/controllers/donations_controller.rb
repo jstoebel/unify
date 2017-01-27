@@ -17,7 +17,7 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new donation_params
-    bottle = Bottle.find_by :code => params[:bottle_id].upcase
+    bottle = Bottle.find_by :code => params[:donation][:bottle_id].upcase
     @donation.bottle_id = bottle.id
     @donation.save
     unless @donation.valid?
