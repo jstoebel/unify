@@ -11,15 +11,15 @@
 #
 
 class Donation < ApplicationRecord
-  belongs_to :place
-  belongs_to :user
-  belongs_to :bottle
+    belongs_to :place
+    belongs_to :user
+    belongs_to :bottle
 
-  validates :user_id, presence: true
-  validates :place_id, presence: true
-  
-  validates :bottle_id,
-    presence: true,
-    :uniqueness => {:message => "That bottle has already been used"}
+    validates :user_id, presence: true
+    validates :place_id, presence: true
+
+    validates :bottle_id,
+        presence: true,
+        :uniqueness => {:message => "That bottle has already been used"}
 
 end

@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127105539) do
+ActiveRecord::Schema.define(version: 20170129122926) do
+
+  create_table "batches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bottles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "batch_id",   null: false
+    t.index ["batch_id"], name: "index_bottles_on_batch_id", using: :btree
+    t.index ["code"], name: "index_bottles_on_code", unique: true, using: :btree
   end
 
   create_table "donations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -37,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170127105539) do
     t.boolean  "state"
     t.boolean  "active"
     t.text     "blurb",      limit: 65535
+    t.index ["code"], name: "index_places_on_code", unique: true, using: :btree
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -11,3 +11,4 @@ you can deploy to staging and production with:
 
  - set up a mysql user with access to three databases
  - place that password in `.env`
+ - for paperclip: `sudo apt-get install imagemagick -y`

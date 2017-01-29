@@ -18,4 +18,8 @@ class Place < ApplicationRecord
 
   validates :code, presence: true, uniqueness: true
   validates :name, presence: true
+
+  def repr
+      return self.code
+  end
 end

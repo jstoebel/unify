@@ -17,18 +17,21 @@
 
 </head>
 <body class="<%= body_class %>">
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path)  %>
-    </li>
-  <% end %>
-  <%= render "flashes" -%>
-  <%= yield %>
-  <%= render "javascript" %>
-  <%= render "css_overrides" %>
+    <div class="container-fluid">
+
+        <% if user_signed_in? %>
+        <span>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        </span>
+        <% else %>
+        <span>
+            <%= link_to('Login', new_user_session_path)  %>
+        </span>
+        <% end %>
+        <%= render "flashes" -%>
+        <%= yield %>
+        <%= render "javascript" %>
+        <%= render "css_overrides" %>
+    </div>
 </body>
 </html>

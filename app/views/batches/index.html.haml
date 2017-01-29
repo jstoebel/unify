@@ -1,0 +1,21 @@
+%h1 Listing batches
+
+%table.table.table-stripped
+  %thead
+    %tr
+      %th Download CSV
+      %th Quantity
+      %th Created On
+      %th
+
+  %tbody
+    - @batches.each do |batch|
+      %tr
+        %td= link_to "Batch #{batch.id}", batch
+        %td= pluralize(batch.bottles.size, 'bottle')
+        %td= batch.created_at.localtime.strftime('%m/%d/%Y %H:%M:%S%P')
+        %td= link_to 'Destroy', batch, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Batch', new_batch_path

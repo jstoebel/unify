@@ -33,7 +33,9 @@ gem 'omniauth', '~> 1.3', '>= 1.3.2'
 gem 'omniauth-facebook', '~> 3.0'
 
 gem 'rails_admin', '~> 1.1', '>= 1.1.1'
-
+gem "paperclip", "~> 5.0.0"
+gem 'andand', '~> 1.3', '>= 1.3.3'
+gem 'highline', '~> 1.7', '>= 1.7.8'
 group :development do
   gem "listen"
   gem "spring"
@@ -68,6 +70,7 @@ group :test do
   gem "simplecov", require: false
   gem "timecop"
   gem "webmock"
+  gem 'rails-controller-testing'
 end
 
 group :staging, :production do
