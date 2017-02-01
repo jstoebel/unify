@@ -31,7 +31,8 @@ pre.prettyprint {
   position: absolute;
   bottom: 0;
   right: 0;
-  max-width: 200;
+  max-width: 200px;
+  min-width: 100px;
   text-align: center;
   background-color: #cde; }
   #tooltip .blurb {
