@@ -30,7 +30,7 @@ pre.prettyprint {
 #tooltip {
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 0;
   max-width: 200px;
   min-width: 100px;
   text-align: center;
@@ -38,3 +38,13 @@ pre.prettyprint {
   #tooltip .blurb {
     word-wrap: break-word;
     display: block; }
+
+// #prompt {
+//   position: absolute;
+//   bottom: 0px;
+//   left: 0px;
+//   text-align: center;
+//   background-color: #cde; }
+//   #tooltip .blurb {
+//     word-wrap: break-word;
+//     display: block; }

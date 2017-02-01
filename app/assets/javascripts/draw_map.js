@@ -1,3 +1,6 @@
+var vpWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+var vpHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) ;
+
 var country,
     state;
 
@@ -146,7 +149,7 @@ function trySubmit(e){
 function tooltip_reset(){
     // resets the tool tip to original instructions
     clear_tooltip();
-    tooltip.append("span").text("Select a country to begin.")
+    tooltip.append('h3').text("Select a country or US State to begin.")
 }
 
 function country_clicked(d) {
@@ -237,5 +240,7 @@ svg.attr("height", w * height / width);
 });
 
 var tooltip = d3.select('#tooltip');
-clear_tooltip();
-tooltip_reset();
+var prompt = d3.select('#prompt');
+
+tooltip.style('min-width', vpWidth*.2+ "px")
+    .style('min-height', vpHeight*.2+ "px")
