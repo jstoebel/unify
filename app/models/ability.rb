@@ -6,8 +6,8 @@ class Ability
     if user.admin?
         can :manage, :all
     elsif user.reg_user?
-        cannot :manage, [:batches, :bottles, :user]
-        can :create, :donation
+        can [:new, :create], Donation
+        can [:index, :active], Place
     end
 
   end
