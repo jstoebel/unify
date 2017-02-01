@@ -17,8 +17,9 @@ FactoryGirl.define do
                 possible_code = Lorem.characters(6).upcase
                 break if !all_codes.include? possible_code
             end
-            return possible_code
+            possible_code
         end
+        batch
 
     end # bottle
 

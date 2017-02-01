@@ -17,22 +17,18 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new donation_params
-    bottle = Bottle.find_by :code => params[:donation][:bottle_id].upcase
-    @donation.bottle_id = bottle.id
+    bottle = Bottle.find_by :code => params[:bottle_code][:code]
+    @donation.bottle_id = bottle.andand.id
     @donation.save
     unless @donation.valid?
       render 'new'
     end
   end
 
-  def confirm
-
-  end
-
   private
 
   def donation_params
-    params.require(:donation).permit(:user_id, :place_id, :bottle_id)
+    params.require(:donation).permit(:user_id, :place_id)
   end
 
 end

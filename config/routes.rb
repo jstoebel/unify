@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
-  get "/donate", to: "map#main"
+  get "/donate", to: "places#index"
 
   resources :donations, only: [:new, :create] do
   end
 
   get "/places/active", to: "places#active"
+
   root to: "home#welcome"
 end
