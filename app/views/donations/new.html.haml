@@ -7,10 +7,6 @@
 = form_for @donation do |f|
     = f.hidden_field :user_id
     = f.hidden_field :place_id
-    = f.label :bottle_id
-    = f.text_field :bottle_id
+    = simple_fields_for :bottle_code do |b|
+        = b.input :code, :label => "Bottle Code"
     = f.button :submit
-
--# = form_tag("/donations", method: "post") do
--#     = hidden_field_tag(:user_id, @user.id)
--#     = hidden_field_tag(:place_id, @place_id)
