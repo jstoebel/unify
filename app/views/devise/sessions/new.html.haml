@@ -1,17 +1,6 @@
 = stylesheet_link_tag "devise/registrations"
 .loginmodal-container
-  %h2 Log in
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-inputs
-      = f.input :email, required: false, autofocus: true
-      = f.input :password, required: false
-      = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-    .form-actions
-      = f.button :submit, "Log in"
-
-    %a.btn.btn-fb.btn-block{:href => user_facebook_omniauth_authorize_path}
-      %i.fa.fa-facebook
-      Sign in with Facebook
-
-    %a.btn.btn-block{:href => new_user_session_path}
-      don't have an account?
+  %h2 Please login with Facebook to continue
+  %a.btn.btn-fb.btn-block{:href => user_facebook_omniauth_authorize_path}
+    %i.fa.fa-facebook
+    Sign in with Facebook

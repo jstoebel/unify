@@ -17,15 +17,15 @@
                 = link_to "Admin Panel", "/admin"
               %li
                 = link_to "Create bottle codes", "/batches"
-                
+
         - if user_signed_in?
           %li
             = link_to('Logout', destroy_user_session_path, :method => :delete)
-          %p.navbar-text.navbar-right
-            = current_user.email
+          = image_tag(current_user.avatar)
 
         - else
           %li
-            = link_to("Create account", new_user_registration_path)
-          %li
-            = link_to("Sign in", new_user_session_path)
+            -# just login to FB from here. no need for new screen
+            %a.btn.btn-fb.btn-block{:href => user_facebook_omniauth_authorize_path}
+              %i.fa.fa-facebook.fa-lg
+              Sign in with Facebook
