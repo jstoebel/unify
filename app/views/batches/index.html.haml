@@ -14,8 +14,11 @@
         %td= link_to "Batch #{batch.id}", batch
         %td= pluralize(batch.bottles.size, 'bottle')
         %td= batch.created_at.localtime.strftime('%m/%d/%Y %H:%M:%S%P')
-        %td= link_to 'Destroy', batch, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Delete',
+          batch,
+          :method => :delete, :data => { :confirm => 'Are you sure? Bottles will also be removed.' },
+          :class => "btn btn-danger"
 
 %br
 
-= link_to 'New Batch', new_batch_path
+= link_to 'New Batch', new_batch_path, :class => "btn btn-info"

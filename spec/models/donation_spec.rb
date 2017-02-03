@@ -33,7 +33,7 @@ RSpec.describe Donation, type: :model do
         donation1 = FactoryGirl.create :donation, :bottle => bottle
         donation2 = FactoryGirl.build :donation, :bottle => bottle
         expect(donation2.valid?).to be false
-        expect(donation2.errors[:bottle_id]).to eq(["That bottle has already been used"])
+        expect(donation2.errors[:bottle_id]).to eq(["has already been used"])
     end
 
 end
