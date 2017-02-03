@@ -386,6 +386,7 @@ DEPENDENCIES
   factory_girl_rails
   faker (~> 1.7, >= 1.7.2)
   flutie
+  font-awesome-rails
   formulaic
   haml
   haml-rails

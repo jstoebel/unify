@@ -9,6 +9,7 @@ gem "honeybadger"
 gem "jquery-rails"
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "font-awesome-rails"
 gem 'sass-rails', '>= 3.2'
 gem 'd3-rails', "~>3.5.17"
 # gem 'topojson-rails', '~> 1.6', '>= 1.6.19'
