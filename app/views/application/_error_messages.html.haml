@@ -1,0 +1,6 @@
+- if object && object.errors.size > 0
+  #errorExplanation
+    - object.errors.full_messages.each do |msg|
+      .alert.alert-danger.alert-dismissable.text-center
+        %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} ×
+        = msg

@@ -1,12 +1,14 @@
-%h2 Checkout
-%p
-    -# confirm the country. Fields are hidden. Just show a submit button
-    -# = @place.inspect
+.row
+  .col-xs-12.col-md-4.col-md-offset-4
+    .well#checkout-well
+      %h2 Checkout
+      %p Please enter the 7 digit bottle code from underneath the cap
 
-
-= form_for @donation do |f|
-    = f.hidden_field :user_id
-    = f.hidden_field :place_id
-    = simple_fields_for :bottle_code do |b|
-        = b.input :code, :label => "Bottle Code"
-    = f.button :submit
+      = error_messages_for(@donation)
+      = simple_form_for @donation do |f|
+        = f.hidden_field :user_id
+        = f.hidden_field :place_id
+        = simple_fields_for :bottle_code do |b|
+          = b.error_notification
+          = b.input :code, :label => "Bottle Code (case sensitive)"
+        = f.button :submit, :class => "btn btn-info btn-block"

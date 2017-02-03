@@ -20,6 +20,6 @@ class Donation < ApplicationRecord
 
     validates :bottle_id,
         presence: true,
-        :uniqueness => {:message => "That bottle has already been used"}
+        :uniqueness => {:message => "has already been used"}
 
 end

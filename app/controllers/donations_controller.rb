@@ -19,8 +19,10 @@ class DonationsController < ApplicationController
     @donation = Donation.new donation_params
     bottle = Bottle.find_by :code => params[:bottle_code][:code]
     @donation.bottle_id = bottle.andand.id
-    @donation.save
-    unless @donation.valid?
+    if @donation.save
+      flash[:notice] = "Donation recieved. Thank you!"
+      redirect_to root_path
+    else
       render 'new'
     end
   end
