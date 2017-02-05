@@ -275,6 +275,6 @@ Devise.setup do |config|
   config.omniauth :facebook,
     ENV["FB_ID"], ENV["FB_SECRET"],
     scope: 'email',
-    info_fields: 'name,email,image',
+    info_fields: 'name,email',
     :display => 'popup'
 end
