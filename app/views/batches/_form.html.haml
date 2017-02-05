@@ -1,8 +1,0 @@
-= simple_form_for(@batch) do |f|
-    = f.error_notification
-
-    .form-inputs
-        = simple_fields_for :qty do |o|
-            = o.input :n, :label => "Bottle Quantity"
-    .form-actions
-        = f.button :submit

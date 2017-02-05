@@ -10,6 +10,7 @@
 class Batch < ApplicationRecord
     has_many :bottles, :dependent => :destroy
     after_save :create_bottles
+    validate :need_bottle_qty
 
     attr_accessor :qty
 
@@ -34,6 +35,12 @@ class Batch < ApplicationRecord
                 csv << [bottle.code]
             end
         end # generate
+    end
+
+    def need_bottle_qty
+      if self.qty == 0
+        self.errors.add(:base, "No bottle quantity specified.")
+      end
     end
 
 end

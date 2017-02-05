@@ -1,5 +1,14 @@
-%h1 New batch
+.container
+    .row
+        .col-xs-12.col-md-4.col-md-offset-4
+            %h1 New Batch
+            = error_messages_for(@batch)
+            = simple_form_for(@batch) do |f|
 
-= render 'form'
+                .form-inputs
+                    = simple_fields_for :qty do |o|
+                        = o.input :n, :label => "Bottle Quantity"
+                .form-actions
+                    = f.button :submit
 
-= link_to 'Back', batches_path
+= link_to 'Back', batches_path, :class => "btn btn-default"
