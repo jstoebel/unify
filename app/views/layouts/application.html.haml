@@ -12,6 +12,7 @@
       = csrf_meta_tags
       = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
   %body{:class => body_class}
+    = render :partial => "fb_sdk"
     = render :partial => "navbar"
     .container-fluid
       = render "flashes"
