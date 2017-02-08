@@ -59,9 +59,14 @@ RSpec.describe DonationsController, type: :controller do
                     }
                 end
 
-                it "renders confirmation" do
+                it "redirects to welcome page" do
                     create_donation
-                    expect(response).to render_template(:create)
+                    expect(response).to redirect_to(root_path)
+                end
+
+                it "redirects to welcome page" do
+                    create_donation
+                    expect(flash[:notice]).to eq("Donation recieved. Thank you!")
                 end
 
             end
