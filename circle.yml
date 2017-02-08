@@ -5,4 +5,5 @@ machine:
 
 dependencies:
   override:
+    - bundle install
     - mv config/.envci .env
