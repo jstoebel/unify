@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203105325) do
+ActiveRecord::Schema.define(version: 20170218130752) do
 
   create_table "batches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20170203105325) do
     t.datetime "updated_at", null: false
     t.integer  "bottle_id",  null: false
     t.index ["bottle_id"], name: "index_donations_on_bottle_id", using: :btree
-    t.index ["place_id"], name: "fk_rails_5b6bb542bb", using: :btree
-    t.index ["user_id"], name: "fk_rails_5470822a00", using: :btree
+    t.index ["place_id"], name: "index_donations_on_place_id", using: :btree
+    t.index ["user_id"], name: "index_donations_on_user_id", using: :btree
   end
 
   create_table "places", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,14 +46,6 @@ ActiveRecord::Schema.define(version: 20170203105325) do
     t.boolean  "active"
     t.text     "blurb",      limit: 65535
     t.index ["code"], name: "index_places_on_code", unique: true, using: :btree
-  end
-
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.integer  "price"
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
