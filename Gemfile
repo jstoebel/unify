@@ -37,6 +37,9 @@ gem 'rails_admin', '~> 1.1', '>= 1.1.1'
 gem "paperclip", "~> 5.0.0"
 gem 'andand', '~> 1.3', '>= 1.3.3'
 gem 'highline', '~> 1.7', '>= 1.7.8'
+
+gem "figaro"
+
 group :development do
   gem "listen"
   gem "spring"
