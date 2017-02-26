@@ -144,7 +144,6 @@ GEM
     hashdiff (0.3.2)
     hashie (3.4.6)
     highline (1.7.8)
-    honeybadger (2.7.2)
     html2haml (2.1.0)
       erubis (~> 2.7.0)
       haml (~> 4.0)
@@ -321,8 +320,6 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    skylight (1.0.1)
-      activesupport (>= 3.0.0)
     slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -394,7 +391,6 @@ DEPENDENCIES
   haml
   haml-rails
   highline (~> 1.7, >= 1.7.8)
-  honeybadger
   jquery-rails
   launchy
   listen
@@ -419,7 +415,6 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   simplecov
-  skylight
   spring
   spring-commands-rspec
   sprockets (>= 3.0.0)
