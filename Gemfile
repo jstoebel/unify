@@ -16,7 +16,6 @@ gem 'd3-rails', "~>3.5.17"
 gem "normalize-rails", "~> 3.0.0"
 gem "mysql2"
 gem "puma"
-gem "rack-canonical-host"
 gem "rails", "~> 5.0.0"
 gem "recipient_interceptor"
 gem "simple_form"
@@ -73,9 +72,4 @@ group :test do
   gem "timecop"
   gem "webmock"
   gem 'rails-controller-testing'
-end
-
-group :staging, :production do
-  gem "rack-timeout"
-  gem "rails_stdout_logging"
 end
