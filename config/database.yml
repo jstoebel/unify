@@ -2,7 +2,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: unify_access
+  username: unify_user
   password: <%= ENV["UNIFY_DB_USERNAME"] %>
 
 development:

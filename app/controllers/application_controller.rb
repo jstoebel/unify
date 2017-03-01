@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     # authorize_resource
 
     def after_sign_in_path_for(resource)
-      '/'
+      root_url
     end
 
     rescue_from CanCan::AccessDenied do |exception|

@@ -18,5 +18,5 @@ Rails.application.routes.draw do
 
   get "/places/active", to: "places#active"
 
-  root to: "home#welcome"
+  root to: "home#welcome" 
 end
