@@ -2,5 +2,9 @@
     #map
     #tooltip
         %h3 Select a country or US State to begin.
-    = javascript_include_tag "draw_map.js"
+
+    :javascript
+        window.base_url = "#{ENV["BASE_URL"]}";
+
     %script(src="https://d3js.org/topojson.v1.min.js")
+    = javascript_include_tag "draw_map.js"

@@ -21,6 +21,7 @@ module Unify
       generate.test_framework :rspec
       generate.view_specs false
     end
+    config.relative_url_root = ENV["BASE_URL"]
     config.action_controller.action_on_unpermitted_parameters = :raise
     config.active_job.queue_adapter = :delayed_job
   end

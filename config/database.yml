@@ -2,17 +2,17 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: unify_user
-  password: <%= ENV["UNIFY_DB_USERNAME"] %>
+  username: h20_user
+  password: <%= ENV["HI_DB_PASSWORD"] %>
 
 development:
   <<: *default
-  database: unify_development
+  database: h20_development
 
 test:
   <<: *default
-  database: unify_test
+  database: h20_test
 
 production:
   <<: *default
-  database: unify
+  database: h20

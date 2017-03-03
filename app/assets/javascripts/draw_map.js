@@ -5,8 +5,8 @@ var country,
     state;
 
 var placeLookup = {};
-d3.json("/places/active", function(error, activePlaces){
-
+d3.json(base_url + "/places/active", function(error, activePlaces){
+  
   // map country code (ie "USA") to country object from db
   activePlaces.forEach(function(place){
       placeLookup[place.code] = place
@@ -40,12 +40,12 @@ svg.append("rect")
 
 var g = svg.append("g");
 
-d3.json("/json/countries.topo.json", function(error, us) {
+d3.json(base_url + "/json/countries.topo.json", function(error, us) {
     if (error){
         console.log(error);
     }
 
-    d3.json("/places/active", function(error, activePlaces){
+    d3.json(base_url + "/places/active", function(error, activePlaces){
 
       // map country code (ie "USA") to country object from db
       activePlaces.forEach(function(place){
@@ -129,7 +129,7 @@ function pop_tooltip(location){
     var btnDiv = tooltip.append('div')
 
     btnDiv.append('a')
-      .attr('href', "/donations/new?place="+ location.id)
+      .attr('href', base_url + "/donations/new?place="+ location.id)
       .classed('btn btn-primary', true)
       .text('Submit')
 
@@ -153,7 +153,8 @@ function tooltip_reset(){
 }
 
 function country_clicked(d) {
-      console.log(placeLookup);
+  console.log("country_clicked");
+  console.log(placeLookup);
   if ( d !== undefined ){
     pop_tooltip(d)
   }
@@ -169,7 +170,7 @@ function country_clicked(d) {
     var xyz = get_xyz(d);
     country = d;
     if (d.id  == 'USA') {
-    d3.json("/json/states_" + d.id.toLowerCase() + ".topo.json", function(error, us) {
+    d3.json(base_url + "/json/states_" + d.id.toLowerCase() + ".topo.json", function(error, us) {
       g.append("g")
         .attr("id", "states")
         .selectAll("path")
@@ -214,19 +215,6 @@ function state_clicked(d) {
 
       zoom(xyz)
 
-  // d3.json("cities_" + country_code + ".topo.json", function(error, us) {
-  //   g.append("g")
-  //     .attr("id", "cities")
-  //     .selectAll("path")
-  //     .data(topojson.feature(us, us.objects.cities).features.filter(function(d) { return state_name == d.properties.state; }))
-  //     .enter()
-  //     .append("path")
-  //     .attr("id", function(d) { return d.properties.name; })
-  //     .attr("class", "city")
-  //     .attr("d", path.pointRadius(20 / xyz[2]));
-  //
-  //   zoom(xyz);
-  // });
     } else {
       state = null;
       country_clicked(country);
