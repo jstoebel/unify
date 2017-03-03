@@ -15,6 +15,10 @@ countries_hash["objects"]["countries"]["geometries"].each do |g|
 
 end
 
+usa = Place.find_by :code => "USA"
+usa.active = true
+usa.save!
+
 # create states
 states_file = File.read(Rails.root.join('public', 'json', 'states_usa.topo.json'))
 states_hash = JSON.parse(states_file)
