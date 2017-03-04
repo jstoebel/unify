@@ -3,7 +3,7 @@
 
 set :repo_url,        'git@github.com:jstoebel/unify.git'
 set :application,     'unify'
-set :user,            'h20_user'
+set :user,            '___'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 

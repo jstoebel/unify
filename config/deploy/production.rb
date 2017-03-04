@@ -64,4 +64,4 @@ role :app, %w{___}
 role :web, %w{___}
 role :db,  %w{___}
 
-server '____', user: 'h20_user', roles: %w{web app}
+server '____', user: '___', roles: %w{web app}
