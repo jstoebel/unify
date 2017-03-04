@@ -43,6 +43,14 @@ group :development do
   gem "spring-commands-rspec"
   gem "web-console"
   gem 'annotate', '~> 2.7', '>= 2.7.1'
+  
+  gem 'capistrano', '~> 3.1',     require: false
+  gem 'capistrano-rvm',           require: false
+  gem 'capistrano-rails',         require: false
+  gem 'capistrano-passenger',     require: false
+  gem 'capistrano-bundler',       require: false
+  gem 'capistrano3-puma',         require: false
+  gem 'capistrano-ext',           require: false
 end
 
 group :development, :test do
