@@ -18,7 +18,7 @@ var margin = {top: 10, left: 10, bottom: 10, right: 10},
   mapRatio = .5,
   height = width * mapRatio,
   m_width = $("#map").width();
-console.log(width);
+
 var projection = d3.geo.mercator()
   .scale(width * 0.12195) // the proper ratio between width and scale
   .translate([width / 2, height / 1.5]);
