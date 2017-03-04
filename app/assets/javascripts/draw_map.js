@@ -6,7 +6,7 @@ var country,
 
 var placeLookup = {};
 d3.json(base_url + "/places/active", function(error, activePlaces){
-  
+
   // map country code (ie "USA") to country object from db
   activePlaces.forEach(function(place){
       placeLookup[place.code] = place
@@ -18,9 +18,9 @@ var margin = {top: 10, left: 10, bottom: 10, right: 10},
   mapRatio = .5,
   height = width * mapRatio,
   m_width = $("#map").width();
-
+console.log(width);
 var projection = d3.geo.mercator()
-  .scale(150)
+  .scale(width * 0.12195) // the proper ratio between width and scale
   .translate([width / 2, height / 1.5]);
 
 var path = d3.geo.path()
@@ -220,15 +220,29 @@ function state_clicked(d) {
       country_clicked(country);
     }
 } // end stateClicked
+d3.select(window).on('resize', resize);
+function resize() {
+  var w = $("#map").width();
+  svg.attr("width", w);
+  svg.attr("height", w * height / width);
 
-$(window).resize(function() {
-var w = $("#map").width();
-svg.attr("width", w);
-svg.attr("height", w * height / width);
-});
+  tooltip.style('min-width', vpWidth*.2+ "px")
+      .style('min-height', vpHeight*.15+ "px")
+
+}
+
+// $(window).resize(function() {
+//   var w = $("#map").width();
+//   svg.attr("width", w);
+//   svg.attr("height", w * height / width);
+//
+//   tooltip.style('min-width', vpWidth*.2+ "px")
+//       .style('min-height', vpHeight*.15+ "px")
+// });
 
 var tooltip = d3.select('#tooltip');
 var prompt = d3.select('#prompt');
 
 tooltip.style('min-width', vpWidth*.2+ "px")
-    .style('min-height', vpHeight*.2+ "px")
+    .style('min-height', vpHeight*.15+ "px")
+    // .transform("translate(0px, 50px)")
