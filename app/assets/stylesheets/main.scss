@@ -28,6 +28,14 @@ body{
 #login-dp .form-group {
     margin-bottom: 10px;
 }
+
+.btn.btn-info,
+.btn.btn-info:hover,
+.btn.btn-info:active,
+.btn.btn-info:visited {
+  background-color: #54C247;
+}
+
 .btn-fb{
     color: #fff;
     background-color:#3b5998;
@@ -46,4 +54,8 @@ body{
         background-color: inherit;
         border-top:0 none;
     }
+}
+
+.jumbotron, .well {
+  background-color: white;
 }
