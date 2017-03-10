@@ -19,6 +19,7 @@ FactoryGirl.define do
             end
             possible_code
         end
+        forever false
         batch
 
     end # bottle

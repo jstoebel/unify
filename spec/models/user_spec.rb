@@ -18,6 +18,7 @@
 #  provider               :string(255)
 #  uid                    :string(255)
 #  role                   :integer
+#  avatar                 :text(65535)
 #
 
 require 'rails_helper'

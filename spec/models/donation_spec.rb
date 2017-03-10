@@ -36,4 +36,12 @@ RSpec.describe Donation, type: :model do
         expect(donation2.errors[:bottle_id]).to eq(["has already been used"])
     end
 
+    it "allows multiple donations with forever codes" do
+      code = FactoryGirl.create :bottle, {:forever => true}
+      donation1 = FactoryGirl.create :donation, :bottle => code
+      donation2 = FactoryGirl.build :donation, :bottle => code
+      expect(donation2.valid?).to be true
+
+    end
+
 end
