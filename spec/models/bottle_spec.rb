@@ -6,7 +6,8 @@
 #  code       :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  batches_id :integer          not null
+#  batch_id   :integer          not null
+#  forever    :boolean
 #
 
 require 'rails_helper'
