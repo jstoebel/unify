@@ -13,7 +13,7 @@
   stroke-linecap: round; }
 
 #countries .active, #states .active {
-  fill: #2b77f2; }
+  fill: #54C247; }
 
 #cities {
   stroke-width: 0; }
@@ -35,17 +35,10 @@ pre.prettyprint {
   // max-width: 30%;
   // min-width: 22%;
   text-align: center;
-  background-color: #cde; }
+  color: white;
+  background-color: #54C247; }
   #tooltip .blurb {
     word-wrap: break-word;
-    display: block; }
+    display: block;
 
-// #prompt {
-//   position: absolute;
-//   bottom: 0px;
-//   left: 0px;
-//   text-align: center;
-//   background-color: #cde; }
-//   #tooltip .blurb {
-//     word-wrap: break-word;
-//     display: block; }
+  }

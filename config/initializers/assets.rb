@@ -11,9 +11,10 @@ Rails.application.config.assets.version = (ENV["ASSETS_VERSION"] || "1.0")
 
 Rails.application.config.assets.precompile += %W( draw_map.js
   fb_sdk.js
+  main.css
   home.css
   places.css
-  main.css
+  donations.css
   devise/registrations.css
   devise/sessions.css
 )

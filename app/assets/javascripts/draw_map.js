@@ -72,7 +72,7 @@ d3.json(base_url + "/json/countries.topo.json", function(error, us) {
       .attr('fill', function(d){
         // console.log(d);
         if ( placeLookup[d.id] ){
-          return '#2b77f2';
+          return '#54C247';
         } else {
           return '#cde'
         }
@@ -130,7 +130,7 @@ function pop_tooltip(location){
 
     btnDiv.append('a')
       .attr('href', base_url + "/donations/new?place="+ location.id)
-      .classed('btn btn-primary', true)
+      .classed('btn btn-default', true)
       .text('Submit')
 
     btnDiv.append('span')
