@@ -60,8 +60,8 @@
 #     # password: "please use keys"
 #   }
 
-role :app, %w{___}
-role :web, %w{___}
-role :db,  %w{___}
+role :app, %w{stoebelj@174.138.66.107}
+role :web, %w{stoebelj@174.138.66.107}
+role :db,  %w{stoebelj@174.138.66.107}
 
-server '____', user: '___', roles: %w{web app}
+server '174.138.66.107', user: 'stoebelj', roles: %w{web app}
