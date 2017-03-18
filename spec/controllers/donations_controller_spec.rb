@@ -43,11 +43,15 @@ RSpec.describe DonationsController, type: :controller do
                 @donation = FactoryGirl.build :donation
             end
             let(:create_donation){post :create, :params => {:donation => {
-                                :user_id => @donation.user.id,
-                                :place_id => @donation.place.id},
-                                :bottle_code => {
-                                    :code => code}
-                            }}
+                                          :user_id => @donation.user_id,
+                                          :place_id => @donation.place.id,
+                                          :store => @donation.store
+                                          },
+                                          :bottle_code => {
+                                            :code => code
+                                          }
+                                      }
+                                  }
 
             context "valid params" do
                 let(:code) {@donation.bottle.code}
@@ -61,12 +65,12 @@ RSpec.describe DonationsController, type: :controller do
 
                 it "redirects to welcome page" do
                     create_donation
-                    expect(response).to redirect_to(root_path)
+                    expect(response).to redirect_to(root_path), assigns(:donation).errors.full_messages
                 end
 
-                it "redirects to welcome page" do
+                it "creates flash message" do
                     create_donation
-                    expect(flash[:notice]).to eq("Donation recieved. Thank you!")
+                    expect(flash[:notice]).to eq("Donation recieved. Thank you!"), assigns(:donation).errors.full_messages
                 end
 
             end
