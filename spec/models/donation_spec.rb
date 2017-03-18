@@ -21,7 +21,7 @@ RSpec.describe Donation, type: :model do
             @errors = donation.errors
         end
 
-        [:user_id, :place_id, :bottle_id, :brand].each do |attr|
+        [:user_id, :place_id, :bottle_id, :store].each do |attr|
             it "checkes #{attr}" do
                 expect(@errors[attr]).to eq(["can't be blank"])
             end
