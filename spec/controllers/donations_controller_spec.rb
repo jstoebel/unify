@@ -45,11 +45,9 @@ RSpec.describe DonationsController, type: :controller do
             let(:create_donation){post :create, :params => {:donation => {
                                           :user_id => @donation.user_id,
                                           :place_id => @donation.place.id,
+                                          :bottle_id => code,
                                           :store => @donation.store
                                           },
-                                          :bottle_code => {
-                                            :code => code
-                                          }
                                       }
                                   }
 

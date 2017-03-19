@@ -21,7 +21,9 @@ class Donation < ApplicationRecord
     validates :store, presence: true
 
     validates :bottle_id,
-        presence: true,
+        :presence => {
+          :message => "was not provided or could not be found"
+        },
         :uniqueness => {
           :message => "has already been used",
           :if => :bottle_not_forever

@@ -21,10 +21,14 @@ RSpec.describe Donation, type: :model do
             @errors = donation.errors
         end
 
-        [:user_id, :place_id, :bottle_id, :store].each do |attr|
-            it "checkes #{attr}" do
+        [:user_id, :place_id, :store].each do |attr|
+            it "checks #{attr}" do
                 expect(@errors[attr]).to eq(["can't be blank"])
             end
+        end
+
+        it "checks bottle code" do
+          expect(@errors[:bottle_id]).to eq(["was not provided or could not be found"])
         end
 
     end # describe

@@ -17,8 +17,6 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new donation_params
-    bottle = Bottle.find_by :code => params[:bottle_code][:code]
-    @donation.bottle_id = bottle.andand.id
     if @donation.save
       flash[:notice] = "Donation recieved. Thank you!"
       redirect_to root_path
@@ -30,7 +28,14 @@ class DonationsController < ApplicationController
   private
 
   def donation_params
-    params.require(:donation).permit(:user_id, :place_id, :store)
+
+    required_params = params.require(:donation)
+    desired_keys = [:user_id, :place_id, :store]
+    attrs = desired_keys.map{|attr| [attr, required_params[attr]] }.to_h  # grab desired attrs
+    bottle = Bottle.find_by :code => required_params[:bottle_id]
+    attrs[:bottle_id] = bottle.andand.id
+    return attrs
+
   end
 
 end

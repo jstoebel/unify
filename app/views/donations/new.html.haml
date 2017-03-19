@@ -4,13 +4,14 @@
       %h2 Checkout
       %p Please enter the 7 digit bottle code from underneath the cap
 
-      = error_messages_for(@donation)
+      -# = error_messages_for(@donation)
       = simple_form_for @donation do |f|
-        = simple_fields_for :bottle_code do |b|
-          = b.error_notification
-          -# add class has-error if @donation has errors in bottle attr
-          = b.input :code, :label => "Bottle Code", hint: "Case sensitive", label_html: {class: "spamspamspam"}
+        = f.input :bottle_id,
+          label: "Bottle Code",
+          hint: "Case sensitive",
+          input_html: { value: @donation.bottle.andand.code },
+          as: :string
+        = f.input :store, label: 'Store', hint: 'Store where you bought Unify Water'
         = f.hidden_field :user_id
         = f.hidden_field :place_id
-        = f.input :store, label: 'Store', hint: 'Store where you bought Unify Water', error: false, error_html: { class: 'dummy'}
         = f.button :submit, :class => "btn btn-info btn-block"
