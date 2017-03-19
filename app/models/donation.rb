@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  bottle_id  :integer          not null
+#  store      :string(255)
 #
 
 class Donation < ApplicationRecord
@@ -17,9 +18,12 @@ class Donation < ApplicationRecord
 
     validates :user_id, presence: true
     validates :place_id, presence: true
+    validates :store, presence: true
 
     validates :bottle_id,
-        presence: true,
+        :presence => {
+          :message => "was not provided or could not be found"
+        },
         :uniqueness => {
           :message => "has already been used",
           :if => :bottle_not_forever

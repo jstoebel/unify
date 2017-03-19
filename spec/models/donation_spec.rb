@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  bottle_id  :integer          not null
+#  store      :string(255)
 #
 
 require 'rails_helper'
@@ -20,10 +21,14 @@ RSpec.describe Donation, type: :model do
             @errors = donation.errors
         end
 
-        [:user, :place, :bottle].each do |attr|
-            it "checkes #{attr}_id" do
-                expect(@errors["#{attr}_id".to_sym]).to eq(["can't be blank"])
+        [:user_id, :place_id, :store].each do |attr|
+            it "checks #{attr}" do
+                expect(@errors[attr]).to eq(["can't be blank"])
             end
+        end
+
+        it "checks bottle code" do
+          expect(@errors[:bottle_id]).to eq(["was not provided or could not be found"])
         end
 
     end # describe

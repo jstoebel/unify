@@ -29,6 +29,8 @@ FactoryGirl.define do
         user
         place
         bottle
+        store {StarWars.planet}
+
     end #donation
 
     factory :place do

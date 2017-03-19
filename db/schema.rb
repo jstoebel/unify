@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311172647) do
+ActiveRecord::Schema.define(version: 20170316223614) do
 
   create_table "batches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170311172647) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "bottle_id",  null: false
+    t.string   "store"
     t.index ["bottle_id"], name: "index_donations_on_bottle_id", using: :btree
     t.index ["place_id"], name: "index_donations_on_place_id", using: :btree
     t.index ["user_id"], name: "index_donations_on_user_id", using: :btree
