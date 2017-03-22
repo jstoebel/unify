@@ -1,11 +1,11 @@
 .jumbotron
-    %h2 For every BOTTLE of Unify Water you buy, we will provide 1 GALLON of clean drinking water to those in need.
+    %h2.text-center For every BOTTLE of Unify Water you buy, we will provide 1 GALLON of clean drinking water to those in need.
 
     .fb-share-button{"data-href" => "https://www.unifywater.com", "data-layout" => "button_count", "data-mobile-iframe" => "true", "data-size" => "large"}
     %a.fb-xfbml-parse-ignore{:href => "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.unifywater.com%2F&src=sdkpreparse", :target => "_blank"}
-    = link_to "Donate", donate_path, :class => "btn btn-info btn-block btn-lg"
-
-    %p We can create these wonderful opportunities because we have amazing water and amazing partners. For our domestic water donations, we have an amazing aquifer source that produces premium water every day.
-    %p So we feel it’s only right to use our water to do GREAT things.
-    %p For our international water donations, we are partnering with a fantastic non-profit water organization called The Water Project.
-    %p This partnership will allow us to fulfill our brand promise of providing thousands of gallons of clean water to folks in the most water stricken communities around the globe.
+    = link_to "Donate Water", donate_path, :class => "btn btn-info btn-block btn-lg"
+    .text-center
+        %p We can create these wonderful opportunities because we have amazing water and amazing partners. For our domestic water donations, we have an amazing aquifer source that produces premium water every day.
+        %p So we feel it’s only right to use our water to do GREAT things.
+        %p For our international water donations, we are partnering with many fantastic non-profit water organizations, including The Water Project.
+        %p These partnerships will allow us to fulfill our brand promise of providing millions of gallons of clean water to people in the most water stricken communities around the globe
