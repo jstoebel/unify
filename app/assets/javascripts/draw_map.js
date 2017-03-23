@@ -213,7 +213,13 @@ function state_clicked(d) {
       var country_code = state.id.substring(0, 3).toLowerCase();
       var state_name = state.properties.name;
 
-      zoom(xyz)
+      // zoom only on larger screens
+      var currentWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+      if (currentWidth > 1000) {
+        zoom(xyz)
+      };
+
 
     } else {
       state = null;
