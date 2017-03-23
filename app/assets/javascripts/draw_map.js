@@ -178,9 +178,23 @@ function country_clicked(d) {
         .enter()
         .append("path")
         .attr("id", function(d) { return d.id; })
-        .attr("class", "active")
+        .attr("fill", function(d){
+          // console.log(d);
+          if ( placeLookup[d.id] ){
+            return '#54C247';
+          } else {
+            return '#cde'
+          }
+        })
+
         .attr("d", path)
-        .on("click", state_clicked);
+        // .on("click", state_clicked);
+        .each(function(d){
+            var state = d3.select(this);
+            if ( placeLookup[d.id] ){
+              state.on("click", state_clicked)
+            }
+        })
 
       zoom(xyz);
       g.selectAll("#" + d.id).style('display', 'none');
@@ -213,7 +227,13 @@ function state_clicked(d) {
       var country_code = state.id.substring(0, 3).toLowerCase();
       var state_name = state.properties.name;
 
-      zoom(xyz)
+      // zoom only on larger screens
+      var currentWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+      if (currentWidth > 1000) {
+        zoom(xyz)
+      };
+
 
     } else {
       state = null;
@@ -221,6 +241,7 @@ function state_clicked(d) {
     }
 } // end stateClicked
 d3.select(window).on('resize', resize);
+
 function resize() {
   var w = $("#map").width();
   svg.attr("width", w);
@@ -229,8 +250,42 @@ function resize() {
   tooltip.style('min-width', vpWidth*.2+ "px")
       .style('min-height', vpHeight*.15+ "px")
 
+  renderTooptip()
+
 }
 
+
+
+function renderTooptip() {
+  // decide where to put tooltip
+  var vpHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  var mapHeight = $("#map").height()
+
+  if ( vpHeight - mapHeight > 100 ){
+    // there is significant white space between map and bottom of scren
+
+    tooltip.style('top', mapHeight + 25)
+      .style('width', '100%')
+      .style('bottom', null)
+      .style('left', null)
+
+    } else {
+    tooltip.style('min-width', vpWidth*.2+ "px")
+    .style('min-height', vpHeight*.15+ "px")
+    .style('bottom', 0)
+    .style('left', 0)
+    .style('top', null)
+    .style('width', null)
+  }
+
+
+      // .transform("translate(0px, 50px)")
+
+}
+var tooltip = d3.select('#tooltip');
+var prompt = d3.select('#prompt');
+
+renderTooptip();
 // $(window).resize(function() {
 //   var w = $("#map").width();
 //   svg.attr("width", w);
@@ -239,10 +294,3 @@ function resize() {
 //   tooltip.style('min-width', vpWidth*.2+ "px")
 //       .style('min-height', vpHeight*.15+ "px")
 // });
-
-var tooltip = d3.select('#tooltip');
-var prompt = d3.select('#prompt');
-
-tooltip.style('min-width', vpWidth*.2+ "px")
-    .style('min-height', vpHeight*.15+ "px")
-    // .transform("translate(0px, 50px)")
