@@ -178,7 +178,15 @@ function country_clicked(d) {
         .enter()
         .append("path")
         .attr("id", function(d) { return d.id; })
-        .attr("class", "active")
+        .attr("fill", function(d){
+          // console.log(d);
+          if ( placeLookup[d.id] ){
+            return '#54C247';
+          } else {
+            return '#cde'
+          }
+        })
+
         .attr("d", path)
         .on("click", state_clicked);
 
