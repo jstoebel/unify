@@ -3,9 +3,15 @@
         .well
             %h4.text-center For every BOTTLE of Unify Water you buy, we will provide 1 GALLON of clean drinking water to those in need.
 
-            .fb-share-button{"data-href" => "https://www.unifywater.com", "data-layout" => "button_count", "data-mobile-iframe" => "true", "data-size" => "large"}
-            %a.fb-xfbml-parse-ignore{:href => "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.unifywater.com%2F&src=sdkpreparse", :target => "_blank"}
+            -# .fb-share-button{"data-href" => "https://www.unifywater.com", "data-layout" => "button_count", "data-mobile-iframe" => "true", "data-size" => "large"}
+            -# %a.fb-xfbml-parse-ignore{:href => "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.unifywater.com%2F&src=sdkpreparse", :target => "_blank"}
+
             = link_to "Donate Water", donate_path, :class => "btn btn-info btn-block btn-lg"
+
+            .text-center
+                .fb-share-button{"data-href" => "https://www.unifywater.com", "data-layout" => "button_count", "data-mobile-iframe" => "true", "data-size" => "large"}
+                %a.fb-xfbml-parse-ignore{:href => "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.unifywater.com%2F&src=sdkpreparse", :target => "_blank"}
+
             .text-center
                 %p We can create these wonderful opportunities because we have amazing water and amazing partners. For our domestic water donations, we have an amazing aquifer source that produces premium water every day.
                 %p So we feel it’s only right to use our water to do GREAT things.
