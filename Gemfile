@@ -35,6 +35,8 @@ gem "paperclip", "~> 5.0.0"
 gem 'andand', '~> 1.3', '>= 1.3.3'
 gem 'highline', '~> 1.7', '>= 1.7.8'
 
+gem 'rollbar'
+
 gem "figaro"
 
 group :development do
@@ -43,7 +45,7 @@ group :development do
   gem "spring-commands-rspec"
   gem "web-console"
   gem 'annotate', '~> 2.7', '>= 2.7.1'
-  
+
   gem 'capistrano', '~> 3.1',     require: false
   gem 'capistrano-rvm',           require: false
   gem 'capistrano-rails',         require: false
