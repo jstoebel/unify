@@ -28,7 +28,7 @@ gem 'haml'
 gem 'devise'
 gem 'cancancan'
 gem 'omniauth', '~> 1.3', '>= 1.3.2'
-gem 'omniauth-facebook', '~> 3.0'
+gem 'omniauth-facebook', '4.0'
 
 gem 'rails_admin', '~> 1.1', '>= 1.1.1'
 gem "paperclip", "~> 5.0.0"
@@ -43,7 +43,7 @@ group :development do
   gem "spring-commands-rspec"
   gem "web-console"
   gem 'annotate', '~> 2.7', '>= 2.7.1'
-  
+
   gem 'capistrano', '~> 3.1',     require: false
   gem 'capistrano-rvm',           require: false
   gem 'capistrano-rails',         require: false
