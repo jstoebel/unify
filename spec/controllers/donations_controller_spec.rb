@@ -104,7 +104,7 @@ RSpec.describe DonationsController, type: :controller do
         end
 
         it "denies create" do
-            post :create, @donation.attributes
+            post :create, params: @donation.attributes
             expect_login_redirect
         end
 
