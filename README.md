@@ -39,3 +39,20 @@ The login portal for administrators is at `/login/admin` (no link is provided). 
    - Activate/deactivate places: To do so select `Places` then find the place you want to interact with and click the pencil icon on the right. On the following screen you can activate or deactivate the place.
 
    - Create/remove forever bottles. The client stated the need to use a UPC code for a period of time as a valid bottle code. Since UPC codes are the same for every bottle, you will need to create a bottle code that can be used more than once. To do so, create a bottle by clicking `Bottles` -> `Add New` and selecting the `forever` option.
+
+# development setup
+
+ 1. In mysql as `root`
+
+```
+CREATE USER 'h20_user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'h20_user'@'localhost';
+```
+
+ 1. In command line:
+```
+bundle exec rake db:create db:schema:load db:seed
+`cp .env.example .env`
+```
+
+ 1. Add Facebook app id and secret to `.env`
