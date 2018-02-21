@@ -39,3 +39,7 @@ The login portal for administrators is at `/login/admin` (no link is provided). 
    - Activate/deactivate places: To do so select `Places` then find the place you want to interact with and click the pencil icon on the right. On the following screen you can activate or deactivate the place.
 
    - Create/remove forever bottles. The client stated the need to use a UPC code for a period of time as a valid bottle code. Since UPC codes are the same for every bottle, you will need to create a bottle code that can be used more than once. To do so, create a bottle by clicking `Bottles` -> `Add New` and selecting the `forever` option.
+   
+### Deploying
+
+We use capistrano to deploy. If you are having trouble with authentication try adding your ssh key: `ssh-add ~/.ssh/id_rsa`
