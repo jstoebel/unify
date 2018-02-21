@@ -20,7 +20,7 @@ gem "rails", "~> 5.0.0"
 gem "recipient_interceptor"
 gem "simple_form"
 gem "sprockets", ">= 3.0.0"
-gem "suspenders"
+gem "suspenders", "1.43"
 gem "title"
 gem "uglifier"
 gem 'haml'
@@ -29,9 +29,8 @@ gem 'devise'
 gem 'cancancan'
 gem 'omniauth', '~> 1.3', '>= 1.3.2'
 gem 'omniauth-facebook'
-
 gem 'rails_admin', '~> 1.1', '>= 1.1.1'
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.2.0'
 gem 'andand', '~> 1.3', '>= 1.3.3'
 gem 'highline', '~> 1.7', '>= 1.7.8'
 
