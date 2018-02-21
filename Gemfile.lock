@@ -448,7 +448,7 @@ DEPENDENCIES
   normalize-rails (~> 3.0.0)
   omniauth (~> 1.3, >= 1.3.2)
   omniauth-facebook
-  paperclip (~> 5.2.0)
+  paperclip (~> 5.2.1)
   pry-byebug
   pry-rails
   puma
